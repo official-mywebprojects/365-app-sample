@@ -33,17 +33,3 @@ class UserClickCount {
   static List<String>? getSavedPromise() =>
       _preferences.getStringList('listString');
 }
-
-// getColorState(bool color) {
-//   bool isLiked = false;
-//   switch (color) {
-//     case true:
-//       isLiked = !isLiked;
-//       break;
-//     case false:
-//       isLiked = isLiked;
-//       break;
-//   }
-//   //default app color
-//   return color;
-// }
