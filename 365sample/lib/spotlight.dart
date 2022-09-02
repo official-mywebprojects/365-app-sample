@@ -24,8 +24,6 @@ import 'custom_page_route.dart';
 late SharedPreferences preferences;
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // SharedPreferences prefs = await SharedPreferences.getInstance();
 
   runApp(MyApp());
 }
@@ -67,7 +65,7 @@ class _SpotLightState extends State<SpotLight> {
     bannerAd = BannerAd(
       size: AdSize.banner,
       adUnitId:
-          "ca-app-pub-3940256099942544/6300978111", //ca-app-pub-9924483658315994/5579361324, //ca-app-pub-3940256099942544/6300978111
+          "ca-app-pub-3940256099942544/6300978111",
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) {
           setState(() {
@@ -92,10 +90,6 @@ class _SpotLightState extends State<SpotLight> {
     print('color taken from saved instance');
     setState(() {});
   }
-
-  //Saved Promises
-  // var _savedPromises = SpotLight._savedPromises;
-  // bool alreadySaved = false;
 
   //deciding the month to list
   String value = "";
@@ -271,171 +265,11 @@ class _SpotLightState extends State<SpotLight> {
     countNum = UserClickCount.getNumber() ?? 0;
     checkLike = UserClickCount.getColorState() ?? false;
 
-    // String monthName;
-    // String monthTagline;
-    // monthName = getMonth();
-    // monthTagline = getMonth();
-  }
-
-  //saved promises
-  // void _openSavedWords() {
-  //   Navigator.of(context).push(
-  //     MaterialPageRoute(
-  //       builder: (BuildContext context) {
-  //         return Scaffold(
-  //           backgroundColor: Colors.white,
-  //           appBar: AppBar(
-  //             leading: IconButton(
-  //               icon: Unicon(
-  //                 Unicons.uniArrowLeft,
-  //                 size: leadingIcons,
-  //                 color: globalDefault,
-  //               ),
-  //               onPressed: () {
-  //                 Navigator.of(context).pushReplacement(CustomPageRoute(
-  //                   child: BTNav(newIndex: 1),
-  //                   direction: AxisDirection.left,
-  //                 ));
-  //               },
-  //             ),
-  //             backgroundColor: Colors.white,
-  //             title: Text(
-  //               'Saved Promises',
-  //               style: TextStyle(
-  //                 color: globalDefault,
-  //                 fontSize: globalHeading,
-  //               ),
-  //             ),
-  //             elevation: 1.0,
-  //           ),
-  //           body: Center(
-  //             child: _savedPromises.length != 0
-  //                 ? ListView(
-  //                     padding: EdgeInsets.all(5.0),
-  //                     //controller: promiseController,
-  //                     //reverse: true,
-  //                     children: _savedPromises
-  //                         .map(
-  //                           (myPromise) => Row(
-  //                             mainAxisAlignment: MainAxisAlignment.start,
-  //                             crossAxisAlignment: CrossAxisAlignment.center,
-  //                             children: [
-  //                               Expanded(
-  //                                 flex: 8,
-  //                                 child: Container(
-  //                                   padding: EdgeInsets.all(15.0),
-  //                                   decoration: BoxDecoration(
-  //                                     border: Border(
-  //                                       bottom: BorderSide(
-  //                                           width: 1.0,
-  //                                           color: inputIcon,
-  //                                           style: BorderStyle.solid),
-  //                                     ),
-  //                                   ),
-  //                                   child: Column(
-  //                                     crossAxisAlignment:
-  //                                         CrossAxisAlignment.start,
-  //                                     children: [
-  //                                       Text(
-  //                                         getMonth(),
-  //                                         //todaysPromise[index]['Passage'],
-  //                                         style: TextStyle(
-  //                                           fontSize: littleTexts,
-  //                                           color: iconInBar,
-  //                                           fontWeight: FontWeight.w400,
-  //                                         ),
-  //                                       ),
-  //                                       SizedBox(height: 8.0),
-  //                                       Builder(
-  //                                         builder: (BuildContext context) {
-  //                                           return Container(
-  //                                             padding: EdgeInsets.fromLTRB(
-  //                                                 10.0, 2.0, 10.0, 2.0),
-  //                                             decoration: BoxDecoration(
-  //                                               color: globalAppColor,
-  //                                               borderRadius:
-  //                                                   BorderRadius.circular(50.0),
-  //                                             ),
-  //                                             child: Text(
-  //                                               'sample',
-  //                                               style: TextStyle(
-  //                                                 color: Colors.white,
-  //                                                 fontSize: littleTexts,
-  //                                               ),
-  //                                             ),
-  //                                           );
-  //                                         },
-  //                                       ),
-  //                                       SizedBox(height: 15.0),
-  //                                       Text(
-  //                                         myPromise,
-  //                                         style: TextStyle(
-  //                                           fontSize: globalTagline,
-  //                                         ),
-  //                                       ),
-  //                                     ],
-  //                                   ),
-  //                                 ),
-  //                               ),
-  //                               SizedBox(width: 5.0),
-  //                               Expanded(
-  //                                 flex: 2,
-  //                                 child: IconButton(
-  //                                   onPressed: () {
-  //                                     setState(() {
-  //                                       _savedPromises.remove(myPromise);
-  //                                       return _openSavedWords();
-  //                                     });
-  //                                   },
-  //                                   icon: Unicon(
-  //                                     Unicons.uniTrash,
-  //                                     size: icon3Size,
-  //                                     color: globalDefault,
-  //                                   ),
-  //                                 ),
-  //                               ),
-  //                             ],
-  //                           ),
-  //                         )
-  //                         .toList(),
-  //                   )
-  //                 : Column(
-  //                     mainAxisAlignment: MainAxisAlignment.center,
-  //                     crossAxisAlignment: CrossAxisAlignment.center,
-  //                     children: [
-  //                       Container(
-  //                         height: 80.0,
-  //                         width: 80.0,
-  //                         padding: EdgeInsets.all(10.0),
-  //                         decoration: BoxDecoration(
-  //                           image: DecorationImage(
-  //                             image: AssetImage('lib/assets/heart.png'),
-  //                             fit: BoxFit.cover,
-  //                           ),
-  //                         ),
-  //                       ),
-  //                       SizedBox(height: 20.0),
-  //                       Text(
-  //                         'No saved promises',
-  //                         style: TextStyle(
-  //                           color: globalInfoColor,
-  //                           fontSize: BtnFnt1,
-  //                         ),
-  //                         textAlign: TextAlign.center,
-  //                       ),
-  //                     ],
-  //                   ),
-  //           ),
-  //         );
-  //       },
-  //     ),
-  //   );
-  // }
+    
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //theme: _switch ? _dark : _light,
       home: WillPopScope(
         onWillPop: () async {
           final difference = DateTime.now().difference(timeBackPressed);
@@ -546,7 +380,7 @@ class _SpotLightState extends State<SpotLight> {
                       itemCount: todaysPromise.length,
                       itemBuilder: (context, index) {
                         final myVal = todaysPromise[index]['Promise'] +
-                            "." +
+                            " " +
                             todaysPromise[index]['Passage'];
                         //final dPromise = todaysPromise[index]['Day'];
                         return Container(
@@ -625,9 +459,6 @@ class _SpotLightState extends State<SpotLight> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   likeButtonWid(),
-                                  // buildRow(todaysPromise[index]['Promise'] +
-                                  //     " -- " +
-                                  //     todaysPromise[index]['Passage']),
                                   Container(
                                     child: Row(
                                       children: [
@@ -703,13 +534,13 @@ class _SpotLightState extends State<SpotLight> {
                   drawerHeader(),
                   SizedBox(height: 20.0),
                   buildMenuItem(
-                    text: 'Favorites',
+                    text: 'Saved promises',
                     unicon: Unicons.uniHeart,
                     onClicked: () => selectedItem(context, 0),
                   ),
                   //SizedBox(height: 15.0),
                   buildMenuItem(
-                    text: 'My Notes',
+                    text: 'Notes',
                     unicon: Unicons.uniNotes,
                     onClicked: () => selectedItem(context, 1),
                   ),
@@ -732,25 +563,11 @@ class _SpotLightState extends State<SpotLight> {
                     unicon: Unicons.uniFeedback,
                     onClicked: () => selectedItem(context, 4),
                   ),
-                  //SizedBox(height: 15.0),
-                  // buildMenuItem(
-                  //   text: 'Share App',
-                  //   unicon: Unicons.uniShare,
-                  //   onClicked: () => selectedItem(context, 5),
-                  // ),
+                  
                 ],
               ),
             ),
-            // child: SingleChildScrollView(
-            //   child: Container(
-            //     child: Column(
-            //       children: [
-            //         drawerHeader(),
-            //         drawerList(),
-            //       ],
-            //     ),
-            //   ),
-            // ),
+            
           ),
         ),
       ),
@@ -797,24 +614,7 @@ class _SpotLightState extends State<SpotLight> {
           ),
         ),
       ),
-      // leading: Unicon(
-      //   unicon,
-      //   animationDuration: Duration(milliseconds: 300),
-      //   animationCurve: Curves.fastOutSlowIn,
-      //   mainAxisAlignment: MainAxisAlignment.start,
-      //   size: leadingIcons,
-      //   color: globalDefault,
-      //   fit: BoxFit.contain,
-      // ),
-      // title: Text(
-      //   text,
-      //   style: TextStyle(
-      //     fontSize: BtnFnt1,
-      //     color: globalDefault,
-      //     fontWeight: FontWeight.w400,
-      //   ),
-      // ),
-      // onTap: onClicked,
+      
     );
   }
 
@@ -838,13 +638,7 @@ class _SpotLightState extends State<SpotLight> {
       case 4:
         Navigator.pushNamed(context, '/rating');
         break;
-      // case 5:
-      //   setState(() {
-      //     Navigator.pushNamed(context, '/share_app');
-      //   });
-      // Share.share(
-      //     'Check out 365 Promises of God for all year round NIV Bible promises');
-      // break;
+      
     }
   }
 
@@ -994,7 +788,7 @@ class _ThemeAppearanceState extends State<ThemeAppearance> {
     bannerAd = BannerAd(
       size: AdSize.largeBanner,
       adUnitId:
-          "ca-app-pub-3940256099942544/6300978111", //ca-app-pub-9924483658315994/4845698301
+          "ca-app-pub-3940256099942544/6300978111",
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) {
           setState(() {
@@ -1225,14 +1019,3 @@ class _ThemeAppearanceState extends State<ThemeAppearance> {
     );
   }
 }
-
-// Drawer Sections
-// enum DrawerSections {
-//   home,
-//   favorites,
-//   notes,
-//   appearance,
-//   about,
-//   feedback,
-//   share_app
-// }
