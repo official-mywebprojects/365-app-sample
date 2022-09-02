@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// THIS SCREEN - SPLASHSCREEN WILL BE MERGED WITH MAIN.DART LATER
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -24,22 +23,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  int dotNum = 4;
-  int timing = 150;
 
   @override
   void initState() {
     super.initState();
     Timer(Duration(seconds: 10), () {
-      // Navigator.of(context).pushReplacement(
-      //   MaterialPageRoute(builder: (_) => LoginUI())
-      //   );
-      Navigator.of(context).pushReplacement(CustomPageRoute(
-        child: BTNav(
-          newIndex: 0,
-        ),
-        direction: AxisDirection.right,
-      ));
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => HomeScreen())
+        );
     });
   }
 
@@ -64,13 +55,6 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             SizedBox(height: 5.0),
-            JumpingDotsProgressIndicator(
-              fontSize: 80.0,
-              color: Color(0XFFF0AC20),
-              numberOfDots: dotNum,
-              milliseconds: timing,
-              dotSpacing: 0.4,
-            ),
           ],
         ),
       ),
